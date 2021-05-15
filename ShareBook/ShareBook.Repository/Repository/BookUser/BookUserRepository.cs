@@ -2,7 +2,7 @@
 
 namespace ShareBook.Repository
 {
-    public class BookUserRepository : RepositoryGeneric<BookUser>, IBookUserRepository
+    public class BookUserRepository : RepositoryGeneric<BookRequest>, IBookRequestRepository
     {
         public BookUserRepository(ApplicationDbContext context) : base(context)
         {

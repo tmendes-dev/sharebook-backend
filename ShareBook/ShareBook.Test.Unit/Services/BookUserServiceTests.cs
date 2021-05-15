@@ -17,7 +17,7 @@ namespace ShareBook.Test.Unit.Services
         private Guid bookId;
 
         readonly Mock<IBookService> bookServiceMock;
-        readonly Mock<IBookUserRepository> bookUserRepositoryMock;
+        readonly Mock<IBookRequestRepository> bookUserRepositoryMock;
         readonly Mock<IBooksEmailService> bookEmailService;
         readonly Mock<IUnitOfWork> unitOfWorkMock;
         readonly Mock<IBookUsersEmailService> bookUsersEmailService;
@@ -31,7 +31,7 @@ namespace ShareBook.Test.Unit.Services
         {
             bookId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3");
             bookServiceMock = new Mock<IBookService>();
-            bookUserRepositoryMock = new Mock<IBookUserRepository>();
+            bookUserRepositoryMock = new Mock<IBookRequestRepository>();
             bookEmailService = new Mock<IBooksEmailService>();
             unitOfWorkMock = new Mock<IUnitOfWork>();
             bookUsersEmailService = new Mock<IBookUsersEmailService>();

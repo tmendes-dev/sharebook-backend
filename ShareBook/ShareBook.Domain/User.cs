@@ -23,7 +23,7 @@ namespace ShareBook.Domain
         public bool Active { get; set; } = true;
         public bool AllowSendingEmail { get; set; } = true;
         public virtual Address Address { get; set; }
-        public virtual ICollection<BookUser> BookUsers { get; set; }
+        public virtual ICollection<BookRequest> BookUsers { get; set; }
         public virtual ICollection<Book> BooksDonated { get; set; }
 
         public bool PasswordIsStrong()

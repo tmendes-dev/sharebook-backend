@@ -6,23 +6,23 @@ namespace ShareBook.Repository.Mapping
 {
     public class BookUserMap
     {
-        public BookUserMap(EntityTypeBuilder<BookUser> entityBuilder)
+        public BookUserMap(EntityTypeBuilder<BookRequest> entityBuilder)
         {
 
             entityBuilder
-             .HasKey(bu => new { bu.Id, bu.BookId, bu.UserId });
+             .HasKey(bu => new { bu.Id, bu.BookRequestedId, bu.RequestUserId });
 
             entityBuilder
-                .HasOne(bu => bu.Book)
+                .HasOne(bu => bu.BookRequested)
                 .WithMany(b => b.BookUsers)
-                .HasForeignKey(bu => bu.BookId);
+                .HasForeignKey(bu => bu.BookRequestedId);
 
             entityBuilder
-                 .HasOne(bu => bu.User)
+                 .HasOne(bu => bu.DonorUser)
                 .WithMany(u => u.BookUsers)
-                .HasForeignKey(bu => bu.UserId);
+                .HasForeignKey(bu => bu.RequestUserId);
 
-            entityBuilder.Property(bu => bu.Note)
+            entityBuilder.Property(bu => bu.DonorNote)
                .HasColumnType("varchar(2000)")
                .HasMaxLength(2000);
 

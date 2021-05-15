@@ -24,10 +24,10 @@ namespace ShareBook.Test.Unit.Mocks
 
         public static Book GetLordTheRings()
         {
-            var requests = new List<BookUser> { 
-                new BookUser { BookId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), UserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  },
-                new BookUser { BookId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), UserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  },
-                new BookUser { BookId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), UserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  }
+            var requests = new List<BookRequest> { 
+                new BookRequest { BookRequestedId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), RequestUserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  },
+                new BookRequest { BookRequestedId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), RequestUserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  },
+                new BookRequest { BookRequestedId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3"), RequestUserId = new Guid("5489A967-9320-4350-E6FC-08D5CC8498F3")  }
             };
             
             return new Book()

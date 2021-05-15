@@ -12,13 +12,13 @@ namespace ShareBook.Service
 
         IList<User> GetGranteeUsersByBookId(Guid bookId);
 
-        IList<BookUser> GetRequestersList(Guid bookId);
+        IList<BookRequest> GetRequestersList(Guid bookId);
 
         void DonateBook(Guid bookId, Guid userId, string note);
 
         void DeniedBookUsers(Guid bookId);
 
-        PagedList<BookUser> GetRequestsByUser(int page, int items);
+        PagedList<BookRequest> GetRequestsByUser(int page, int items);
 
         /// <summary>
         /// Comunicar os interessados não escolhidos sobre a finalização da doação. e quem ganhou o livro

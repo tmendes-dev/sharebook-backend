@@ -18,7 +18,7 @@ namespace ShareBook.Test.Unit.Services
         private User administrator;
         private User requestingUser;
         private ContactUs contactUs;
-        private BookUser bookRequested;
+        private BookRequest bookRequested;
 
         public EmailTemplateTests()
         {

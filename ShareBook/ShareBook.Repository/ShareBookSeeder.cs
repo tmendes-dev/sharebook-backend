@@ -475,10 +475,10 @@ namespace ShareBook.Repository
                 };
 
 
-                var request = new BookUser()
+                var request = new BookRequest()
                 {
-                    User = grantee,
-                    Book = book5,
+                    DonorUser = grantee,
+                    BookRequested = book5,
                     CreationDate = DateTime.Now,
                     Reason = "Quero muito esse livro.",
                     NickName = "Interessado 1"

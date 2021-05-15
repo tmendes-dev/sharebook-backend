@@ -40,14 +40,14 @@ namespace ShareBook.Api.AutoMapper
                  .ForMember(dest => dest.CreationDate, opt => opt.MapFrom(src => src.CreationDate))
                  .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name));
 
-            CreateMap<BookUser, MyBookRequestVM>()
-                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Book.Author))
-                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Book.Title))
+            CreateMap<BookRequest, MyBookRequestVM>()
+                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.BookRequested.Author))
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.BookRequested.Title))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
                 .ForMember(dest => dest.RequestId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.BookStatus, opt => opt.MapFrom(src => src.Book.Status.ToString()))
-                .ForMember(dest => dest.TrackingNumber, opt => opt.MapFrom(src => src.Book.TrackingNumber))
-                .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.Book.Slug));
+                .ForMember(dest => dest.BookStatus, opt => opt.MapFrom(src => src.BookRequested.Status.ToString()))
+                .ForMember(dest => dest.TrackingNumber, opt => opt.MapFrom(src => src.BookRequested.TrackingNumber))
+                .ForMember(dest => dest.Slug, opt => opt.MapFrom(src => src.BookRequested.Slug));
 
             #endregion [ Book ]
 
@@ -64,12 +64,12 @@ namespace ShareBook.Api.AutoMapper
 
             #region [ BookUser ]
 
-            CreateMap<BookUser, RequestersListVM>()
-                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
+            CreateMap<BookRequest, RequestersListVM>()
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.RequestUserId))
                 .ForMember(dest => dest.RequesterNickName, opt => opt.MapFrom(src => src.NickName))
-                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.User.Location()))
-                .ForMember(dest => dest.TotalBooksWon, opt => opt.MapFrom(src => src.User.TotalBooksWon()))
-                .ForMember(dest => dest.TotalBooksDonated, opt => opt.MapFrom(src => src.User.TotalBooksDonated()))
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.DonorUser.Location()))
+                .ForMember(dest => dest.TotalBooksWon, opt => opt.MapFrom(src => src.DonorUser.TotalBooksWon()))
+                .ForMember(dest => dest.TotalBooksDonated, opt => opt.MapFrom(src => src.DonorUser.TotalBooksDonated()))
                 .ForMember(dest => dest.RequestText, opt => opt.MapFrom(src => src.Reason))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
 

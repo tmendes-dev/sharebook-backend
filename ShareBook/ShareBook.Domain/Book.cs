@@ -38,7 +38,7 @@ namespace ShareBook.Domain
 
         public Category Category { get; set; }
 
-        public virtual ICollection<BookUser> BookUsers { get; set; }
+        public virtual ICollection<BookRequest> BookUsers { get; set; }
 
         public string ImageUrl { get; set; }
 
@@ -64,10 +64,10 @@ namespace ShareBook.Domain
         }
 
         public string WinnerName()
-            => BookUsers?.FirstOrDefault(x => x.Status == DonationStatus.Donated)?.User?.Name ?? "";
+            => BookUsers?.FirstOrDefault(x => x.Status == DonationStatus.Donated)?.DonorUser?.Name ?? "";
 
         public User WinnerUser()
-            => BookUsers?.FirstOrDefault(x => x.Status == DonationStatus.Donated)?.User;
+            => BookUsers?.FirstOrDefault(x => x.Status == DonationStatus.Donated)?.DonorUser;
 
         public int TotalInterested()
         {

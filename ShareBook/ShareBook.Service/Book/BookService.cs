@@ -61,7 +61,7 @@ namespace ShareBook.Service
         public void Received(Guid bookId, Guid winnerUserId)
         {
             var book = _repository.Get().Include(f => f.BookUsers)
-                .ThenInclude(bu => bu.User)
+                .ThenInclude(bu => bu.DonorUser)
                 .FirstOrDefault(f => f.Id == bookId);
 
             if (book == null)
@@ -282,7 +282,7 @@ namespace ShareBook.Service
                     x.BookUsers
                     .Any(y =>
                     y.Status == DonationStatus.WaitingAction
-                    && y.UserId == userId
+                    && y.RequestUserId == userId
               ));
         }
 
@@ -354,7 +354,7 @@ namespace ShareBook.Service
             var books = _repository
             .Get().Include(x => x.User).ThenInclude(u => u.Address)
             .Include(x => x.UserFacilitator).ThenInclude(u => u.Address)
-            .Include(x => x.BookUsers).ThenInclude(bu => bu.User).ThenInclude(u => u.Address)
+            .Include(x => x.BookUsers).ThenInclude(bu => bu.DonorUser).ThenInclude(u => u.Address)
             .Where(x => x.Id == bookId)
             .ToList();
 

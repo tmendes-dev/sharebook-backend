@@ -26,9 +26,9 @@ namespace ShareBook.Test.Unit.Domain
         [Fact]
         public void TotalInteresedShouldBeEqualsTheBookUsersLength()
         {
-            var bookUsers = new List<BookUser>();
-            bookUsers.Add(new BookUser());
-            bookUsers.Add(new BookUser());
+            var bookUsers = new List<BookRequest>();
+            bookUsers.Add(new BookRequest());
+            bookUsers.Add(new BookRequest());
 
             var book = new Book
             {

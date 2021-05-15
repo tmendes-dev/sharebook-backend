@@ -7,12 +7,12 @@ namespace ShareBook.Test.Unit.Mocks
 {
     public class BookUserMock
     {
-        public static BookUser GetDonation(Book book, User requestingUser)
+        public static BookRequest GetDonation(Book book, User requestingUser)
         {
-            return new  BookUser()
+            return new  BookRequest()
             {
-                Book = book,
-                User = requestingUser,
+                BookRequested = book,
+                DonorUser = requestingUser,
                 Reason = "MOTIVO"
             };
         }

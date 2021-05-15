@@ -3,7 +3,7 @@ using ShareBook.Domain.Enums;
 
 namespace ShareBook.Domain.Validators
 {
-    public class BookUserValidator : AbstractValidator<BookUser>
+    public class BookUserValidator : AbstractValidator<BookRequest>
     {
         #region Messages
         public const string Book = "Livro é obrigatório";
@@ -13,11 +13,11 @@ namespace ShareBook.Domain.Validators
 
         public BookUserValidator()
         {
-            RuleFor(b => b.BookId)
+            RuleFor(b => b.BookRequestedId)
                 .NotEmpty()
                 .WithMessage(Book);
 
-            RuleFor(b => b.UserId)
+            RuleFor(b => b.RequestUserId)
                 .NotEmpty()
                 .WithMessage(Requester);
 
